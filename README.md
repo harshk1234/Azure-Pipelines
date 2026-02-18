@@ -39,6 +39,9 @@ Uses parameterized dataset:
 @item().table_name
 pipeline
 
+Writes each table as .txt file in ADLS.
+
+pipeline
 <img width="698" height="382" alt="image" src="https://github.com/user-attachments/assets/8f190fcb-40e7-412f-a303-712665dcec76" />
 
 output
@@ -46,6 +49,4 @@ output
 
 
 
-
-Writes each table as .txt file in ADLS.
 
