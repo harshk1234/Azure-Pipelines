@@ -1,0 +1,9 @@
+{
+	"name": "adfdatahub2026x",
+	"location": "centralus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "dc7713bc-686f-48ba-9538-09927603f1ba",
+		"tenantId": "189fef8e-4ecb-4d45-b881-f4b408c250b6"
+	}
+}
