@@ -1,0 +1,27 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "adfdatahub2026x"
+		},
+		"ADLS_LS_accountKey": {
+			"value": ""
+		},
+		"Azure_SQL_LS_password": {
+			"value": ""
+		},
+		"ADLS_LS_properties_typeProperties_url": {
+			"value": "https://adlsaccount1212.dfs.core.windows.net/"
+		},
+		"Azure_SQL_LS_properties_typeProperties_server": {
+			"value": "hksqlserver.database.windows.net"
+		},
+		"Azure_SQL_LS_properties_typeProperties_database": {
+			"value": "HK_SQL_DB"
+		},
+		"Azure_SQL_LS_properties_typeProperties_userName": {
+			"value": "kaute"
+		}
+	}
+}
