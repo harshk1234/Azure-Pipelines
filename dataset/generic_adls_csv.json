@@ -19,7 +19,7 @@
 					"value": "@dataset().foldernameParameter",
 					"type": "Expression"
 				},
-				"fileSystem": "landing"
+				"fileSystem": "allsqltablesdb"
 			},
 			"columnDelimiter": ",",
 			"escapeChar": "\\",
