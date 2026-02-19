@@ -43,7 +43,7 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "AzureSqlTable2",
+						"referenceName": "AzureSqlTable_Parameter_KV",
 						"type": "DatasetReference"
 					}
 				],
