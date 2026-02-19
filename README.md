@@ -47,6 +47,35 @@ pipeline
 output
 <img width="590" height="300" alt="image" src="https://github.com/user-attachments/assets/61c9ab69-bd2e-4b76-81f9-925e0f01f671" />
 
+3. Data should only be ingested into the data lake if the number of records exceeds a minimum threshold (e.g., 300 records).
+
+   How It Works
+   Step 1: Lookup Activity
+   Executes a SQL query to count records in the source table
+
+   SELECT COUNT(*) AS recordcount
+   FROM salesLT.customer
+   WHERE CustomerID < 500
+
+Step 2: If Condition Activity (Decision Logic)
+Evaluates the record count returned by the Lookup activity
+@greater(activity('Lookup1').output.firstRow.recordcount,300)
+Logic:
+If record count > 300 → proceed with data copy
+If record count ≤ 300 → skip data movement
+
+Step 3: Copy Activity (Conditional Execution)
+Executes only when the condition is TRUE
+
+pipeline: 
+<img width="558" height="358" alt="image" src="https://github.com/user-attachments/assets/17710280-7208-4a97-b794-242b4f4111ce" />
+output:
+<img width="773" height="91" alt="image" src="https://github.com/user-attachments/assets/1eec53c2-f119-4b0a-9530-00fd8339ba9c" />
+
+   
+
+
+
 
 
 
