@@ -1,0 +1,10 @@
+{
+	"name": "nested if",
+	"properties": {
+		"description": "Scenario 3\n\nYou need to copy data from the Customer table in SQL to an ADLS location in CSV format. However, this should only happen if the total number of records in the Customer table is greater than 500.\n\nOnce the Customer data is successfully copied, you then need to check the total record count of the Product table. If the Product table has more than 200 records, then copy the Product table data to ADLS as well.\n\nSteps\n\nGet the total record count of the Customer table using a Lookup activity.\n\nUse an If Condition activity to check whether the record count is greater than 500.\n\nIf the condition is true, copy the Customer table data to ADLS.\n\nAfter successfully copying the Customer data, get the record count of the Product table.",
+		"folder": {
+			"name": "Session_6"
+		},
+		"annotations": []
+	}
+}
