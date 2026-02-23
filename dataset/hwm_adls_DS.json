@@ -1,0 +1,29 @@
+{
+	"name": "hwm_adls_DS",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "hwm_adls_LS",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "wm.txt",
+				"folderPath": "watermark",
+				"fileSystem": "landing"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": false,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "1900-01-01T00:0000:00:0000",
+				"type": "String"
+			}
+		]
+	}
+}
