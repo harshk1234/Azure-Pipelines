@@ -54,7 +54,7 @@
 				"typeProperties": {
 					"source": {
 						"type": "AzureSqlSource",
-						"sqlReaderQuery": "select max(ModifiedDate) as LastModifiedDate  from saleslt.customer",
+						"sqlReaderQuery": "SELECT MAX(MODIFIEDDATE) as LastModifiedDate  FROM SALESLT.CUSTOMER  ",
 						"queryTimeout": "02:00:00",
 						"partitionOption": "None"
 					},
@@ -63,6 +63,72 @@
 						"type": "DatasetReference"
 					}
 				}
+			},
+			{
+				"name": "incremental data",
+				"type": "Copy",
+				"dependsOn": [
+					{
+						"activity": "get last modified from table",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "AzureSqlSource",
+						"sqlReaderQuery": {
+							"value": "SELECT * FROM SALESLT.CUSTOMER WHERE MODIFIEDDATE > '@{activity('get hw date').output.firstRow.Prop_0}'  AND MODIFIEDDATE <= '@{activity('get last modified from table').output.firstRow.LastModifiedDate}'",
+							"type": "Expression"
+						},
+						"queryTimeout": "02:00:00",
+						"partitionOption": "None"
+					},
+					"sink": {
+						"type": "DelimitedTextSink",
+						"storeSettings": {
+							"type": "AzureBlobFSWriteSettings"
+						},
+						"formatSettings": {
+							"type": "DelimitedTextWriteSettings",
+							"quoteAllText": true,
+							"fileExtension": ".txt"
+						}
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"typeConversion": true,
+						"typeConversionSettings": {
+							"allowDataTruncation": true,
+							"treatBooleanAsNumber": false
+						}
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "Customer_SQL_DB_DS",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "generic_adls_csv",
+						"type": "DatasetReference",
+						"parameters": {
+							"foldernameParameter": "customer"
+						}
+					}
+				]
 			}
 		],
 		"folder": {
