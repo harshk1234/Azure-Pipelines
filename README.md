@@ -1,6 +1,6 @@
 # Azure-Pipelines
 
-1. demonstrates a dynamic and scalable Azure Data Factory (ADF) pipeline that copies multiple tables from Azure SQL Database to Azure Data Lake Storage Gen2 using a ForEach loop and parameterized datasets. Instead of creating separate pipelines for each table, this solution dynamically iterates through a list of tables.
+1. demonstrates a dynamic and scalable Azure Data Factory (ADF) pipeline that copies multiple tables from Azure SQL Database to Azure Data Lake Storage Gen2 using a ForEach loop and parameterized datasets. Instead of creating separate pipelines for each table, this solution dynamically iterates through a list of tables
 
 How It Works
 createArray() expression generates a list of table names.
