@@ -9,7 +9,7 @@ Copy Activity:
 Reads data from Azure SQL Database.
 Uses parameterized dataset (tablename = @item()).
 Writes output to ADLS Gen2 as .txt (CSV format).
-Output folder dynamically created using table name.
+Output folder dynamically created using table name
 
 pipeline:
 <img width="562" height="377" alt="image" src="https://github.com/user-attachments/assets/8a429251-bf68-4d2b-8b3d-bcbba787161b" />
